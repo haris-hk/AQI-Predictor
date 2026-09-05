@@ -1,0 +1,64 @@
+name: Training pipeline (daily)
+
+on:
+  schedule:
+    # 02:00 UTC = 07:00 Karachi, after the overnight data has landed.
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+    inputs:
+      full_ladder:
+        description: "Run the full model ladder including SARIMAX and torch"
+        type: boolean
+        default: false
+
+concurrency:
+  group: training-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    # Measured at roughly 2 minutes per target-horizon on a 2-core runner for
+    # the quick ladder, so 6 pairs is ~12 minutes. The full ladder is several
+    # times that, which is why it runs weekly rather than daily.
+    timeout-minutes: 90
+    env:
+      HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+      HOPSWORKS_PROJECT: ${{ secrets.HOPSWORKS_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Restore pipeline state
+        run: ./scripts/data_branch.sh restore
+
+      - name: Train and evaluate
+        run: |
+          if [ "${{ inputs.full_ladder }}" = "true" ]; then
+            python -m src.pipelines.train
+          else
+            python -m src.pipelines.train --quick
+          fi
+
+      - name: Refresh SHAP explanations
+        run: python -m src.pipelines.explain || echo "explanations skipped"
+
+      - name: Persist model and state
+        run: ./scripts/data_branch.sh save "daily training $(date -u +%Y-%m-%d)"
+
+      - name: Summarise the run
+        if: always()
+        run: |
+          echo "### Training run" >> $GITHUB_STEP_SUMMARY
+          if [ -f data/training_summary.json ]; then
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat data/training_summary.json >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
+          fi

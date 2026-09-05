@@ -1,0 +1,34 @@
+name: Full model ladder (weekly)
+
+on:
+  schedule:
+    # Sunday 03:00 UTC. The complete comparison -- baselines, linear, trees,
+    # SARIMAX, MLP and LSTM -- plus the small hyperparameter search. Weekly
+    # rather than daily because it costs roughly an hour on a 2-core runner and
+    # the model ranking does not change day to day.
+    - cron: "0 3 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  full:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+      HOPSWORKS_PROJECT: ${{ secrets.HOPSWORKS_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: |
+          pip install -r requirements.txt
+          pip install -r requirements-deep.txt
+      - run: ./scripts/data_branch.sh restore
+      - run: python -m src.pipelines.train
+      - run: python -m src.pipelines.explain || echo "explanations skipped"
+      - run: ./scripts/data_branch.sh save "weekly full ladder $(date -u +%Y-%m-%d)"

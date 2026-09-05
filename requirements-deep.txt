@@ -1,0 +1,3 @@
+# Tier 4 only. Installed by the weekly full-ladder job, not the hourly or daily
+# ones -- torch is a large download and the deep models are not the incumbent.
+torch>=2.2

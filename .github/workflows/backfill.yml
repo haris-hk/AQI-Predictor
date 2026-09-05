@@ -1,0 +1,60 @@
+name: Historical backfill (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "Start date (YYYY-MM-DD). Blank uses the probed archive start."
+        required: false
+      end:
+        description: "End date (YYYY-MM-DD). Blank uses yesterday."
+        required: false
+      probe_first:
+        description: "Probe the true archive coverage before backfilling"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      HOPSWORKS_API_KEY: ${{ secrets.HOPSWORKS_API_KEY }}
+      HOPSWORKS_PROJECT: ${{ secrets.HOPSWORKS_PROJECT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: ./scripts/data_branch.sh restore
+
+      - name: Probe archive coverage
+        if: ${{ inputs.probe_first }}
+        run: python -m src.clients.open_meteo --probe
+
+      - name: Backfill
+        run: |
+          ARGS=""
+          [ -n "${{ inputs.start }}" ] && ARGS="$ARGS --start ${{ inputs.start }}"
+          [ -n "${{ inputs.end }}" ] && ARGS="$ARGS --end ${{ inputs.end }}"
+          python -m src.pipelines.backfill $ARGS
+
+      - run: ./scripts/data_branch.sh save "backfill $(date -u +%Y-%m-%d)"
+
+      - name: Summarise
+        if: always()
+        run: |
+          echo "### Backfill" >> $GITHUB_STEP_SUMMARY
+          for f in data/coverage.json data/backfill_summary.json; do
+            if [ -f "$f" ]; then
+              echo "#### $f" >> $GITHUB_STEP_SUMMARY
+              echo '```json' >> $GITHUB_STEP_SUMMARY
+              cat "$f" >> $GITHUB_STEP_SUMMARY
+              echo '```' >> $GITHUB_STEP_SUMMARY
+            fi
+          done

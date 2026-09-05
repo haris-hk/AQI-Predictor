@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: |
+          pip install -r requirements.txt
+          pip install pytest ruff
+      - name: Lint
+        run: ruff check src app tests --select E9,F63,F7,F82
+      - name: Tests
+        # The suite runs entirely on synthetic data and makes no network calls,
+        # so it is safe on every push and cannot be flaked by an API outage.
+        run: pytest tests -q --tb=short

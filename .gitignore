@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+# Pipeline state lives on the `data` branch, not on main.
+data/
+!data/.gitkeep
+.DS_Store
