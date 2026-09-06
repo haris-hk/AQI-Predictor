@@ -1,60 +1,157 @@
 """Shared loading and styling for the dashboard.
 
-Everything the app reads is precomputed by the pipelines. The app fits models,
-computes SHAP and calls no APIs -- it renders. That keeps it inside a Community
-Cloud memory allowance and makes a page load fast even on a cold start.
+Everything the app reads is precomputed by the pipelines. The app fits no
+models, computes no SHAP and calls no forecasting APIs -- it renders. That
+keeps it inside a Community Cloud memory allowance and makes a page load fast
+even on a cold start.
+
+Where the data comes from
+-------------------------
+The pipelines run on ephemeral GitHub Actions runners and persist their output
+to an orphan `data` branch (see scripts/data_branch.sh). The app is deployed
+from `main`, where `data/` is gitignored, so there is nothing to read locally:
+a Community Cloud deployment would show an empty dashboard forever.
+
+So each loader tries two sources in order:
+
+  1. the local `data/` directory, which is what exists during development and
+     inside a pipeline run
+  2. the `data` branch over raw.githubusercontent.com, which is what exists on
+     Community Cloud
+
+Reading the branch over HTTPS rather than through Hopsworks is deliberate.
+Hopsworks holds the feature groups, but the forecast, the experiment log, the
+SHAP artefacts and the run summaries are only ever written to the mirror, so
+the feature store alone cannot serve this dashboard.
+
+Configure the source in Streamlit's secrets if the repository is renamed:
+
+    DATA_REPO = "owner/repo"
+    DATA_BRANCH = "data"
 """
 from __future__ import annotations
 
+import io
+import json
 import sys
 from pathlib import Path
 
 import pandas as pd
+import requests
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.config import AQI_BANDS, CITY, band_for  # noqa: E402
-from src.store import local_store                  # noqa: E402
+from src.config import AQI_BANDS, ARTIFACT_DIR, CITY, DATA_DIR, band_for  # noqa: E402
+from src.store import local_store                                        # noqa: E402
 
 TTL = 900  # 15 minutes; the feature pipeline runs hourly
+REMOTE_TIMEOUT = 20
+
+
+def _secret(name: str, default: str) -> str:
+    """Streamlit secrets are optional; fall back to the default when unset."""
+    try:
+        return str(st.secrets[name])
+    except Exception:
+        return default
+
+
+def _raw_base() -> str:
+    repo = _secret("DATA_REPO", "haris-hk/AQI-Predictor")
+    branch = _secret("DATA_BRANCH", "data")
+    return f"https://raw.githubusercontent.com/{repo}/{branch}/data"
 
 
 @st.cache_data(ttl=TTL, show_spinner=False)
+def _fetch(relative_path: str) -> bytes | None:
+    """Fetch one artefact from the data branch. None when absent or unreachable.
+
+    A 404 is the normal state before the first pipeline run, so it is not an
+    error worth surfacing: the caller renders its empty state instead.
+    """
+    try:
+        resp = requests.get(f"{_raw_base()}/{relative_path}", timeout=REMOTE_TIMEOUT)
+    except requests.RequestException:
+        return None
+    return resp.content if resp.status_code == 200 else None
+
+
+def _read_parquet(name: str) -> pd.DataFrame:
+    local = local_store.read_parquet(DATA_DIR / name)
+    if not local.empty:
+        return local
+    payload = _fetch(name)
+    if payload is None:
+        return pd.DataFrame()
+    try:
+        return pd.read_parquet(io.BytesIO(payload))
+    except Exception:
+        return pd.DataFrame()
+
+
+def _read_json(relative_path: str, local_path: Path) -> dict:
+    if local_path.exists():
+        try:
+            return json.loads(local_path.read_text())
+        except json.JSONDecodeError:
+            pass
+    payload = _fetch(relative_path)
+    if payload is None:
+        return {}
+    try:
+        return json.loads(payload.decode("utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError):
+        return {}
+
+
+# ------------------------------------------------------------------- loaders
+@st.cache_data(ttl=TTL, show_spinner=False)
 def load_daily() -> pd.DataFrame:
-    df = local_store.read_daily()
+    df = _read_parquet("daily_features.parquet")
     return df.sort_index() if not df.empty else df
 
 
 @st.cache_data(ttl=TTL, show_spinner=False)
 def load_predictions() -> pd.DataFrame:
-    df = local_store.read_predictions()
+    df = _read_parquet("predictions.parquet")
     return df.sort_index() if not df.empty else df
 
 
 @st.cache_data(ttl=TTL, show_spinner=False)
 def load_experiments() -> pd.DataFrame:
-    return local_store.read_experiments()
+    local = local_store.read_experiments()
+    if not local.empty:
+        return local
+    payload = _fetch("experiments.csv")
+    if payload is None:
+        return pd.DataFrame()
+    try:
+        return pd.read_csv(io.BytesIO(payload))
+    except Exception:
+        return pd.DataFrame()
 
 
 @st.cache_data(ttl=TTL, show_spinner=False)
 def load_json(name: str) -> dict:
-    return local_store.read_json(name)
+    return _read_json(name, DATA_DIR / name)
 
 
 @st.cache_data(ttl=TTL, show_spinner=False)
 def load_artifact_json(name: str) -> dict:
-    import json
-    from src.config import ARTIFACT_DIR
-    path = ARTIFACT_DIR / name
-    if not path.exists():
-        return {}
-    try:
-        return json.loads(path.read_text())
-    except json.JSONDecodeError:
-        return {}
+    return _read_json(f"artifacts/{name}", ARTIFACT_DIR / name)
 
 
+def data_source_note() -> None:
+    """Say plainly where the numbers came from, in the sidebar."""
+    local = (DATA_DIR / "daily_features.parquet").exists()
+    st.sidebar.caption(
+        "Source: local `data/`" if local
+        else f"Source: `{_secret('DATA_BRANCH', 'data')}` branch of "
+             f"`{_secret('DATA_REPO', 'haris-hk/AQI-Predictor')}`")
+
+
+# -------------------------------------------------------------------- display
 def page_config(title: str) -> None:
     st.set_page_config(page_title=f"{title} | {CITY.name} AQI",
                        page_icon="🌫️", layout="wide")
@@ -98,8 +195,12 @@ def band_legend() -> str:
 
 
 def data_freshness_note(daily: pd.DataFrame) -> None:
+    data_source_note()
     if daily.empty:
-        st.warning("No data yet. Run the backfill workflow to populate the feature store.")
+        st.warning(
+            "No data yet. The pipelines have not published anything to the "
+            "`data` branch. Run the **Historical backfill** workflow in the "
+            "repository's Actions tab, then the **Training pipeline**.")
         return
     observed = daily[daily["aqi_mean"].notna()]
     if observed.empty:
