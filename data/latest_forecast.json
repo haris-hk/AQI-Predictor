@@ -1,0 +1,59 @@
+{
+  "predicted_at": "2026-09-06T22:08:26.238017+00:00",
+  "as_of_date": "2026-09-11",
+  "forecast": [
+    {
+      "target_date": "2026-09-12T00:00:00.000",
+      "as_of_date": "2026-09-11T00:00:00.000",
+      "horizon": 1,
+      "aqi_mean": 66.4053438623,
+      "aqi_mean_lower": 55.5277415899,
+      "aqi_mean_upper": 77.0190145176,
+      "aqi_max": 72.7072382194,
+      "aqi_max_lower": 56.9857234674,
+      "aqi_max_upper": 92.5269665105,
+      "band": "Moderate",
+      "band_color": "#FFFF00",
+      "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
+      "predicted_at": "2026-09-06T22:08:26.223Z",
+      "model_version": "2026-09-06T20:34:17.744687+00:00",
+      "city_id": "karachi_pk"
+    },
+    {
+      "target_date": "2026-09-13T00:00:00.000",
+      "as_of_date": "2026-09-11T00:00:00.000",
+      "horizon": 2,
+      "aqi_mean": 74.134395391,
+      "aqi_mean_lower": 58.2714258598,
+      "aqi_mean_upper": 94.5957533213,
+      "aqi_max": 89.9622994852,
+      "aqi_max_lower": 70.1936026687,
+      "aqi_max_upper": 116.3669362603,
+      "band": "Moderate",
+      "band_color": "#FFFF00",
+      "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
+      "predicted_at": "2026-09-06T22:08:26.223Z",
+      "model_version": "2026-09-06T20:34:17.744687+00:00",
+      "city_id": "karachi_pk"
+    },
+    {
+      "target_date": "2026-09-14T00:00:00.000",
+      "as_of_date": "2026-09-11T00:00:00.000",
+      "horizon": 3,
+      "aqi_mean": 85.0943757213,
+      "aqi_mean_lower": 64.1162030503,
+      "aqi_mean_upper": 106.1225021946,
+      "aqi_max": 90.7912736014,
+      "aqi_max_lower": 67.7512397045,
+      "aqi_max_upper": 116.816627574,
+      "band": "Moderate",
+      "band_color": "#FFFF00",
+      "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
+      "predicted_at": "2026-09-06T22:08:26.223Z",
+      "model_version": "2026-09-06T20:34:17.744687+00:00",
+      "city_id": "karachi_pk"
+    }
+  ],
+  "live_scoring": {},
+  "model_trained_at": "2026-09-06T20:34:17.744687+00:00"
+}
