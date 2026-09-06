@@ -196,9 +196,19 @@ def compute_hourly_aqi(df: pd.DataFrame, min_fraction: float = 0.75) -> pd.DataF
     sub_cols = [f"sub_{p}" for p in available]
     subs = out[sub_cols]
     out["us_aqi_epa"] = subs.max(axis=1, skipna=True)
-    # idxmax over columns gives the dominant pollutant; NaN-only rows give NaN.
-    dominant = subs.where(subs.notna().any(axis=1)).idxmax(axis=1, skipna=True)
-    out["dominant_pollutant"] = dominant.str.replace("sub_", "", regex=False)
+    # idxmax over columns gives the dominant pollutant, but it raises
+    # "Encountered all NA values" on a row where every sub-index is missing,
+    # and such rows are normal: at the start of a series the 24-hour and
+    # 8-hour windows have not filled yet, and a pollutant the API does not
+    # return for these coordinates is missing throughout. Masking with
+    # .where() does not help, because the all-NA rows survive the mask. So
+    # idxmax is only ever handed the rows that have at least one value.
+    valid = subs.notna().any(axis=1)
+    dominant = pd.Series(index=subs.index, dtype="object")
+    if valid.any():
+        dominant.loc[valid] = subs.loc[valid].idxmax(axis=1)
+    out["dominant_pollutant"] = (
+        dominant.astype("string").str.replace("sub_", "", regex=False))
     return out
 
 

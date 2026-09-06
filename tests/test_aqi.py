@@ -143,6 +143,47 @@ class TestComputeHourlyAQI:
         assert aqi.compute_hourly_aqi(pd.DataFrame()).empty
 
 
+class TestAllMissingRows:
+    """Rows where every sub-index is NaN.
+
+    These do not occur in the synthetic fixtures, because the generator always
+    emits SO2 and NO2 and those use a 1-hour window, so they carry a value from
+    the very first row. Live CAMS data is not so obliging: a pollutant can be
+    absent for a location entirely, and then the leading rows have nothing at
+    all until the 24-hour and 8-hour windows fill. The first live backfill hit
+    exactly that and pandas raised "Encountered all NA values" from idxmax.
+    """
+
+    @staticmethod
+    def _particulates_only(periods: int = 48) -> pd.DataFrame:
+        idx = pd.date_range("2022-06-01", periods=periods, freq="h", tz="UTC")
+        return pd.DataFrame({
+            "pm2_5": np.linspace(20, 90, periods),
+            "pm10": np.linspace(40, 160, periods),
+        }, index=idx)
+
+    def test_leading_all_na_rows_do_not_raise(self):
+        out = aqi.compute_hourly_aqi(self._particulates_only())
+        subs = out[[c for c in out.columns if c.startswith("sub_")]]
+        assert subs.isna().all(axis=1).any(), "fixture must contain an all-NA row"
+        assert out["dominant_pollutant"].notna().any()
+
+    def test_all_na_rows_yield_no_dominant_pollutant(self):
+        out = aqi.compute_hourly_aqi(self._particulates_only())
+        subs = out[[c for c in out.columns if c.startswith("sub_")]]
+        blank = subs.isna().all(axis=1)
+        assert out.loc[blank, "dominant_pollutant"].isna().all()
+        assert out.loc[blank, "us_aqi_epa"].isna().all()
+
+    def test_entirely_missing_frame_is_safe(self):
+        idx = pd.date_range("2022-06-01", periods=30, freq="h", tz="UTC")
+        empty = pd.DataFrame({"pm2_5": [np.nan] * 30, "pm10": [np.nan] * 30},
+                             index=idx)
+        out = aqi.compute_hourly_aqi(empty)
+        assert len(out) == 30
+        assert out["dominant_pollutant"].isna().all()
+
+
 class TestDailyAQI:
     def test_local_calendar_grouping(self):
         idx = pd.date_range("2024-01-01", periods=72, freq="h", tz="UTC")

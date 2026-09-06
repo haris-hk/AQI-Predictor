@@ -56,10 +56,13 @@ else:
                     interval,
                 ),
                 unsafe_allow_html=True)
-    worst = forecast.loc[forecast["aqi_mean"].idxmax()]
-    st.caption(f"**{band_for(float(worst['aqi_mean'])).label} peak expected "
-               f"{pd.Timestamp(worst.name).strftime('%A')}.** "
-               f"{band_for(float(worst['aqi_mean'])).guidance}")
+    # idxmax raises on an all-NA column, so only look for a peak when one exists.
+    peak = forecast["aqi_mean"].dropna()
+    if not peak.empty:
+        worst = forecast.loc[peak.idxmax()]
+        st.caption(f"**{band_for(float(worst['aqi_mean'])).label} peak expected "
+                   f"{pd.Timestamp(worst.name).strftime('%A')}.** "
+                   f"{band_for(float(worst['aqi_mean'])).guidance}")
 
 # ------------------------------------------------------------------- chart
 st.markdown("#### Recent history and forecast")
