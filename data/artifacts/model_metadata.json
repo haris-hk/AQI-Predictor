@@ -1,0 +1,170 @@
+{
+  "run_id": "20260906T203412Z",
+  "trained_at": "2026-09-06T20:34:17.744687+00:00",
+  "city": "Karachi",
+  "city_id": "karachi_pk",
+  "n_training_days": 1495,
+  "date_min": "2022-08-04",
+  "date_max": "2026-09-06",
+  "n_features": 173,
+  "selected_models": {
+    "aqi_mean|1": "extra_trees",
+    "aqi_mean|2": "hist_gradient_boosting#0",
+    "aqi_mean|3": "hist_gradient_boosting#0",
+    "aqi_max|1": "hist_gradient_boosting#0",
+    "aqi_max|2": "hist_gradient_boosting#2",
+    "aqi_max|3": "hist_gradient_boosting#0"
+  },
+  "cv_metrics": {
+    "aqi_mean|1": {
+      "rmse": 9.04443082131851,
+      "mae": 6.905788125582761,
+      "r2": 0.7404789200090748,
+      "bias": 0.40054737126731704,
+      "band_accuracy": 0.8533333333333333,
+      "band_within_one": 1.0,
+      "rmse_std": 2.8712390265156493,
+      "n_folds": 5,
+      "n": 300,
+      "skill_vs_persistence": 0.36554366541094274
+    },
+    "aqi_mean|2": {
+      "rmse": 14.887833810418703,
+      "mae": 11.653646259198485,
+      "r2": 0.2936813339185688,
+      "bias": -0.8279391478430342,
+      "band_accuracy": 0.7533333333333333,
+      "band_within_one": 0.9966666666666667,
+      "rmse_std": 3.215574303808259,
+      "n_folds": 5,
+      "n": 300,
+      "skill_vs_persistence": 0.24325931636547327
+    },
+    "aqi_mean|3": {
+      "rmse": 15.761652481106896,
+      "mae": 12.47778703856917,
+      "r2": 0.18634258784869712,
+      "bias": 0.29783969951518285,
+      "band_accuracy": 0.7466666666666666,
+      "band_within_one": 1.0,
+      "rmse_std": 2.903320406241661,
+      "n_folds": 5,
+      "n": 300,
+      "skill_vs_persistence": 0.29287030942861836
+    },
+    "aqi_max|1": {
+      "rmse": 14.061912773968714,
+      "mae": 10.85013748812822,
+      "r2": 0.5445708202827477,
+      "bias": -0.07607006414600641,
+      "band_accuracy": 0.76,
+      "band_within_one": 0.9966666666666667,
+      "rmse_std": 3.0544479635402335,
+      "n_folds": 5,
+      "n": 300,
+      "skill_vs_persistence": 0.21311936746359772
+    },
+    "aqi_max|2": {
+      "rmse": 18.52160692151366,
+      "mae": 14.455400482724823,
+      "r2": 0.21316812367969465,
+      "bias": -1.2286140435173354,
+      "band_accuracy": 0.6900000000000001,
+      "band_within_one": 0.9966666666666667,
+      "rmse_std": 4.136200640180401,
+      "n_folds": 5,
+      "n": 300,
+      "skill_vs_persistence": 0.20926289999421976
+    },
+    "aqi_max|3": {
+      "rmse": 19.103213167136524,
+      "mae": 15.406876987280583,
+      "r2": 0.1664988330890754,
+      "bias": -0.35653422807034146,
+      "band_accuracy": 0.6966666666666667,
+      "band_within_one": 0.9933333333333334,
+      "rmse_std": 3.5935818322358344,
+      "n_folds": 5,
+      "n": 300,
+      "skill_vs_persistence": 0.2704344811084708
+    }
+  },
+  "holdout_metrics": {
+    "aqi_mean|1": {
+      "rmse": 3.6302302212365665,
+      "mae": 2.6941150669728464,
+      "r2": 0.8210097154809993,
+      "bias": 0.9634831940879218,
+      "band_accuracy": 0.9887640449438202,
+      "band_within_one": 1.0,
+      "n": 89,
+      "persistence_rmse": 5.5386868951720505,
+      "skill_vs_persistence": 0.34456843473117127,
+      "beats_persistence": true
+    },
+    "aqi_mean|2": {
+      "rmse": 5.79045745951592,
+      "mae": 4.50477792693969,
+      "r2": 0.5485603927908267,
+      "bias": 1.6379358723704804,
+      "band_accuracy": 0.9886363636363636,
+      "band_within_one": 1.0,
+      "n": 88,
+      "persistence_rmse": 8.681085469966323,
+      "skill_vs_persistence": 0.33298001965894897,
+      "beats_persistence": true
+    },
+    "aqi_mean|3": {
+      "rmse": 6.765294234667389,
+      "mae": 5.086252048576592,
+      "r2": 0.3808605270459927,
+      "bias": 1.9892583269264992,
+      "band_accuracy": 0.9885057471264368,
+      "band_within_one": 1.0,
+      "n": 87,
+      "persistence_rmse": 10.57975954862313,
+      "skill_vs_persistence": 0.3605436679751538,
+      "beats_persistence": true
+    },
+    "aqi_max|1": {
+      "rmse": 5.113447401329888,
+      "mae": 4.013858394960786,
+      "r2": 0.7104761818781449,
+      "bias": 2.5467339852381783,
+      "band_accuracy": 0.9550561797752809,
+      "band_within_one": 1.0,
+      "n": 89,
+      "persistence_rmse": 6.358514622380068,
+      "skill_vs_persistence": 0.1958110179801924,
+      "beats_persistence": true
+    },
+    "aqi_max|2": {
+      "rmse": 7.60728370399341,
+      "mae": 5.9797984955598285,
+      "r2": 0.3640148880200713,
+      "bias": 3.4541433028754294,
+      "band_accuracy": 0.9545454545454546,
+      "band_within_one": 1.0,
+      "n": 88,
+      "persistence_rmse": 9.493072021330876,
+      "skill_vs_persistence": 0.19864890028223858,
+      "beats_persistence": true
+    },
+    "aqi_max|3": {
+      "rmse": 11.272247564848472,
+      "mae": 9.96068951078945,
+      "r2": -0.45833148810191293,
+      "bias": 8.041873384010218,
+      "band_accuracy": 0.9655172413793104,
+      "band_within_one": 1.0,
+      "n": 87,
+      "persistence_rmse": 11.41613538632413,
+      "skill_vs_persistence": 0.012603899358799464,
+      "beats_persistence": true
+    }
+  },
+  "rmse_mean": 6.696493430931941,
+  "promoted": true,
+  "promotion_reason": "beats persistence at every horizon and improves on the incumbent",
+  "random_seed": 42
+}

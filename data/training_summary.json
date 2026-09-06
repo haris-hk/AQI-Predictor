@@ -1,0 +1,88 @@
+{
+  "run_id": "20260906T203412Z",
+  "promoted": true,
+  "reason": "beats persistence at every horizon and improves on the incumbent",
+  "rmse_mean": 6.696493430931941,
+  "selected": {
+    "aqi_mean|1": "extra_trees",
+    "aqi_mean|2": "hist_gradient_boosting#0",
+    "aqi_mean|3": "hist_gradient_boosting#0",
+    "aqi_max|1": "hist_gradient_boosting#0",
+    "aqi_max|2": "hist_gradient_boosting#2",
+    "aqi_max|3": "hist_gradient_boosting#0"
+  },
+  "holdout": {
+    "aqi_mean|1": {
+      "rmse": 3.6302302212365665,
+      "mae": 2.6941150669728464,
+      "r2": 0.8210097154809993,
+      "bias": 0.9634831940879218,
+      "band_accuracy": 0.9887640449438202,
+      "band_within_one": 1.0,
+      "n": 89,
+      "persistence_rmse": 5.5386868951720505,
+      "skill_vs_persistence": 0.34456843473117127,
+      "beats_persistence": true
+    },
+    "aqi_mean|2": {
+      "rmse": 5.79045745951592,
+      "mae": 4.50477792693969,
+      "r2": 0.5485603927908267,
+      "bias": 1.6379358723704804,
+      "band_accuracy": 0.9886363636363636,
+      "band_within_one": 1.0,
+      "n": 88,
+      "persistence_rmse": 8.681085469966323,
+      "skill_vs_persistence": 0.33298001965894897,
+      "beats_persistence": true
+    },
+    "aqi_mean|3": {
+      "rmse": 6.765294234667389,
+      "mae": 5.086252048576592,
+      "r2": 0.3808605270459927,
+      "bias": 1.9892583269264992,
+      "band_accuracy": 0.9885057471264368,
+      "band_within_one": 1.0,
+      "n": 87,
+      "persistence_rmse": 10.57975954862313,
+      "skill_vs_persistence": 0.3605436679751538,
+      "beats_persistence": true
+    },
+    "aqi_max|1": {
+      "rmse": 5.113447401329888,
+      "mae": 4.013858394960786,
+      "r2": 0.7104761818781449,
+      "bias": 2.5467339852381783,
+      "band_accuracy": 0.9550561797752809,
+      "band_within_one": 1.0,
+      "n": 89,
+      "persistence_rmse": 6.358514622380068,
+      "skill_vs_persistence": 0.1958110179801924,
+      "beats_persistence": true
+    },
+    "aqi_max|2": {
+      "rmse": 7.60728370399341,
+      "mae": 5.9797984955598285,
+      "r2": 0.3640148880200713,
+      "bias": 3.4541433028754294,
+      "band_accuracy": 0.9545454545454546,
+      "band_within_one": 1.0,
+      "n": 88,
+      "persistence_rmse": 9.493072021330876,
+      "skill_vs_persistence": 0.19864890028223858,
+      "beats_persistence": true
+    },
+    "aqi_max|3": {
+      "rmse": 11.272247564848472,
+      "mae": 9.96068951078945,
+      "r2": -0.45833148810191293,
+      "bias": 8.041873384010218,
+      "band_accuracy": 0.9655172413793104,
+      "band_within_one": 1.0,
+      "n": 87,
+      "persistence_rmse": 11.41613538632413,
+      "skill_vs_persistence": 0.012603899358799464,
+      "beats_persistence": true
+    }
+  }
+}
