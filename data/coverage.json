@@ -1,0 +1,10 @@
+{
+  "city_id": "karachi_pk",
+  "probed_at": "2026-09-06T20:02:15.504236Z",
+  "air_quality_start": "2022-08-03",
+  "days_available": 1495,
+  "weather_archive_ok": true,
+  "weather_archive_from": "2022-08-03",
+  "historical_forecast_ok": true,
+  "historical_forecast_from": "2022-08-03"
+}

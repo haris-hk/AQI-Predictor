@@ -1,0 +1,33 @@
+{
+  "ran_at": "2026-09-06T20:12:35.765138+00:00",
+  "start": "2022-08-03",
+  "end": "2026-09-05",
+  "chunks": 9,
+  "failed_chunks": [],
+  "hourly_rows": 35880,
+  "daily_rows": 1495,
+  "future_weather_source": "historical_forecast",
+  "quality": {
+    "rows": 1495,
+    "columns": 182,
+    "problems": [
+      "1 days with < 18 hourly observations"
+    ],
+    "thin_days": 1,
+    "date_min": "2022-08-04",
+    "date_max": "2026-09-06",
+    "missing_days": 0,
+    "duplicate_dates": 0,
+    "aqi_mean_min": 15.354938271604938,
+    "aqi_mean_max": 263.78961214547576,
+    "aqi_mean_median": 83.43688212927758,
+    "columns_over_50pct_null": [
+      "fc_boundary_layer_height_mean_h1",
+      "fc_ventilation_index_h1",
+      "fc_boundary_layer_height_mean_h2",
+      "fc_ventilation_index_h2",
+      "fc_boundary_layer_height_mean_h3",
+      "fc_ventilation_index_h3"
+    ]
+  }
+}
