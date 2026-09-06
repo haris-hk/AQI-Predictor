@@ -1,4 +1,6 @@
-# Streamlit Community Cloud installs from this file.
--r requirements.txt
-streamlit>=1.49
-plotly>=5.20
+# Superseded by app/requirements.txt.
+#
+# Streamlit Community Cloud cannot be pointed at a custom dependency filename,
+# so this file is never read by a deployment. It is kept only so existing
+# references do not dangle. Install app/requirements.txt instead.
+-r app/requirements.txt
