@@ -1,5 +1,5 @@
 {
-  "predicted_at": "2026-09-09T14:37:59.180072+00:00",
+  "predicted_at": "2026-09-09T18:38:38.747211+00:00",
   "as_of_date": "2026-09-14",
   "forecast": [
     {
@@ -15,7 +15,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-09-09T14:37:59.163Z",
+      "predicted_at": "2026-09-09T18:38:38.730Z",
       "model_version": "2026-09-09T07:12:50.788868+00:00",
       "city_id": "karachi_pk"
     },
@@ -32,7 +32,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-09-09T14:37:59.163Z",
+      "predicted_at": "2026-09-09T18:38:38.730Z",
       "model_version": "2026-09-09T07:12:50.788868+00:00",
       "city_id": "karachi_pk"
     },
@@ -40,16 +40,16 @@
       "target_date": "2026-09-17T00:00:00.000",
       "as_of_date": "2026-09-14T00:00:00.000",
       "horizon": 3,
-      "aqi_mean": 74.1362683753,
-      "aqi_mean_lower": 52.4394259951,
-      "aqi_mean_upper": 92.2284216177,
+      "aqi_mean": 74.1306093715,
+      "aqi_mean_lower": 52.4337669913,
+      "aqi_mean_upper": 92.2227626139,
       "aqi_max": 85.6525811248,
       "aqi_max_lower": 60.584811783,
       "aqi_max_upper": 109.7314532594,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-09-09T14:37:59.163Z",
+      "predicted_at": "2026-09-09T18:38:38.730Z",
       "model_version": "2026-09-09T07:12:50.788868+00:00",
       "city_id": "karachi_pk"
     }
