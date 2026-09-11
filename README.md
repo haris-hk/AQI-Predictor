@@ -6,8 +6,8 @@ Hopsworks holds the features and the models, and Streamlit Community Cloud
 serves the dashboard. There is no machine to keep running and nothing to pay
 for.
 
-**Live dashboard:** _add the Streamlit URL_
-**Repository:** _add the GitHub URL_
+**Live dashboard:** [aqi_predictor_app](https://aqi-predictor-01.streamlit.app)
+**Repository:** [aqi_predictor_github_repo](https://github.com/haris-hk/AQI-Predictor.git)
 
 ---
 
