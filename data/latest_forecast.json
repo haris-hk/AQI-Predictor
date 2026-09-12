@@ -1,5 +1,5 @@
 {
-  "predicted_at": "2026-09-12T00:20:11.854606+00:00",
+  "predicted_at": "2026-09-12T05:49:25.180029+00:00",
   "as_of_date": "2026-09-16",
   "forecast": [
     {
@@ -15,7 +15,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-09-12T00:20:11.836Z",
+      "predicted_at": "2026-09-12T05:49:25.158Z",
       "model_version": "2026-09-11T07:08:49.533299+00:00",
       "city_id": "karachi_pk"
     },
@@ -32,7 +32,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-09-12T00:20:11.836Z",
+      "predicted_at": "2026-09-12T05:49:25.158Z",
       "model_version": "2026-09-11T07:08:49.533299+00:00",
       "city_id": "karachi_pk"
     },
@@ -49,7 +49,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-09-12T00:20:11.836Z",
+      "predicted_at": "2026-09-12T05:49:25.158Z",
       "model_version": "2026-09-11T07:08:49.533299+00:00",
       "city_id": "karachi_pk"
     }
