@@ -1,24 +1,26 @@
 {
-  "ran_at": "2026-09-19T05:55:13.836403+00:00",
+  "ran_at": "2026-09-19T11:01:41.574746+00:00",
   "hourly_rows_fetched": 264,
   "hourly_rows_total": 36360,
-  "daily_rows_total": 1512,
+  "daily_rows_total": 1513,
   "latest_hour": "2026-09-25 23:00:00+00:00",
-  "latest_day": "2026-09-23",
+  "latest_day": "2026-09-24",
   "hopsworks_hourly": false,
   "hopsworks_daily": false,
   "quality": {
-    "rows": 1512,
+    "rows": 1513,
     "columns": 182,
-    "problems": [],
-    "thin_days": 0,
+    "problems": [
+      "1 days with < 18 hourly observations"
+    ],
+    "thin_days": 1,
     "date_min": "2022-08-04",
-    "date_max": "2026-09-23",
+    "date_max": "2026-09-24",
     "missing_days": 0,
     "duplicate_dates": 0,
     "aqi_mean_min": 15.354938271604938,
     "aqi_mean_max": 263.78961214547576,
-    "aqi_mean_median": 83.15196715251373,
+    "aqi_mean_median": 83.14654626109,
     "columns_over_50pct_null": []
   }
 }
