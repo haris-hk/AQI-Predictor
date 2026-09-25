@@ -1,19 +1,17 @@
 {
-  "ran_at": "2026-09-24T22:26:14.025431+00:00",
+  "ran_at": "2026-09-25T01:32:23.666845+00:00",
   "hourly_rows_fetched": 264,
-  "hourly_rows_total": 36480,
+  "hourly_rows_total": 36504,
   "daily_rows_total": 1518,
-  "latest_hour": "2026-09-30 23:00:00+00:00",
+  "latest_hour": "2026-10-01 23:00:00+00:00",
   "latest_day": "2026-09-29",
   "hopsworks_hourly": false,
   "hopsworks_daily": false,
   "quality": {
     "rows": 1518,
     "columns": 182,
-    "problems": [
-      "1 days with < 18 hourly observations"
-    ],
-    "thin_days": 1,
+    "problems": [],
+    "thin_days": 0,
     "date_min": "2022-08-04",
     "date_max": "2026-09-29",
     "missing_days": 0,
