@@ -1,21 +1,21 @@
 {
-  "predicted_at": "2026-10-08T16:30:39.669286+00:00",
+  "predicted_at": "2026-10-08T22:06:05.667994+00:00",
   "as_of_date": "2026-10-13",
   "forecast": [
     {
       "target_date": "2026-10-14T00:00:00.000",
       "as_of_date": "2026-10-13T00:00:00.000",
       "horizon": 1,
-      "aqi_mean": 74.8563659646,
-      "aqi_mean_lower": 63.7234995191,
-      "aqi_mean_upper": 84.7372515204,
-      "aqi_max": 72.3223659129,
-      "aqi_max_lower": 55.361079126,
-      "aqi_max_upper": 88.8354330071,
+      "aqi_mean": 74.3054098277,
+      "aqi_mean_lower": 63.1725433823,
+      "aqi_mean_upper": 84.1862953836,
+      "aqi_max": 71.2028264679,
+      "aqi_max_lower": 54.2415396811,
+      "aqi_max_upper": 87.7158935622,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-08T16:30:39.648Z",
+      "predicted_at": "2026-10-08T22:06:05.647Z",
       "model_version": "2026-10-08T08:33:03.952197+00:00",
       "city_id": "karachi_pk"
     },
@@ -23,16 +23,16 @@
       "target_date": "2026-10-15T00:00:00.000",
       "as_of_date": "2026-10-13T00:00:00.000",
       "horizon": 2,
-      "aqi_mean": 78.0480372682,
-      "aqi_mean_lower": 59.7302359467,
-      "aqi_mean_upper": 94.9012791818,
-      "aqi_max": 79.9202247775,
-      "aqi_max_lower": 55.472710349,
-      "aqi_max_upper": 101.7973419823,
+      "aqi_mean": 77.9585264799,
+      "aqi_mean_lower": 59.6407251584,
+      "aqi_mean_upper": 94.8117683935,
+      "aqi_max": 79.4542569425,
+      "aqi_max_lower": 55.006742514,
+      "aqi_max_upper": 101.3313741472,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-08T16:30:39.648Z",
+      "predicted_at": "2026-10-08T22:06:05.647Z",
       "model_version": "2026-10-08T08:33:03.952197+00:00",
       "city_id": "karachi_pk"
     },
@@ -40,16 +40,16 @@
       "target_date": "2026-10-16T00:00:00.000",
       "as_of_date": "2026-10-13T00:00:00.000",
       "horizon": 3,
-      "aqi_mean": 79.663911612,
-      "aqi_mean_lower": 57.2108599413,
-      "aqi_mean_upper": 100.7480511727,
-      "aqi_max": 80.4167170814,
-      "aqi_max_lower": 55.674915543,
-      "aqi_max_upper": 105.7272065337,
+      "aqi_mean": 76.9606061958,
+      "aqi_mean_lower": 54.5075545251,
+      "aqi_mean_upper": 98.0447457565,
+      "aqi_max": 80.4143641331,
+      "aqi_max_lower": 55.6725625947,
+      "aqi_max_upper": 105.7248535854,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-08T16:30:39.648Z",
+      "predicted_at": "2026-10-08T22:06:05.647Z",
       "model_version": "2026-10-08T08:33:03.952197+00:00",
       "city_id": "karachi_pk"
     }
@@ -57,27 +57,27 @@
   "live_scoring": {
     "aqi_mean|h1": {
       "n": 30,
-      "rmse": 11.748658634838495,
-      "mae": 7.90669929274718,
-      "bias": -0.6993547817249576
+      "rmse": 11.954253585155444,
+      "mae": 8.190489197431571,
+      "bias": -0.454114834726456
     },
     "aqi_mean|h2": {
       "n": 2,
-      "rmse": 10.135465703175333,
-      "mae": 9.815340059682793,
-      "bias": 2.5272048854474853
+      "rmse": 8.783764460312888,
+      "mae": 6.87316642216695,
+      "bias": 5.4693785229633285
     },
     "aqi_max|h1": {
       "n": 30,
-      "rmse": 16.950334202671296,
-      "mae": 10.787832983705533,
-      "bias": -1.5898130156743833
+      "rmse": 17.16621824282045,
+      "mae": 10.913722978080168,
+      "bias": -1.1737166912130401
     },
     "aqi_max|h2": {
       "n": 2,
-      "rmse": 5.859048548826899,
-      "mae": 5.456427435272673,
-      "bias": 2.1344436139458622
+      "rmse": 5.824708931834389,
+      "mae": 5.394899887710125,
+      "bias": 5.394899887710125
     }
   },
   "model_trained_at": "2026-10-08T08:33:03.952197+00:00"
