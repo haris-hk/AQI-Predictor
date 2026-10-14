@@ -1,84 +1,84 @@
 {
-  "predicted_at": "2026-10-14T06:10:19.673428+00:00",
-  "as_of_date": "2026-10-18",
+  "predicted_at": "2026-10-14T11:55:25.013844+00:00",
+  "as_of_date": "2026-10-19",
   "forecast": [
     {
-      "target_date": "2026-10-19T00:00:00.000",
-      "as_of_date": "2026-10-18T00:00:00.000",
-      "horizon": 1,
-      "aqi_mean": 105.2338798196,
-      "aqi_mean_lower": 93.9111910134,
-      "aqi_mean_upper": 115.1226389222,
-      "aqi_max": 124.3500135899,
-      "aqi_max_lower": 107.4074195222,
-      "aqi_max_upper": 140.9607554438,
-      "band": "Unhealthy for Sensitive Groups",
-      "band_color": "#FF7E00",
-      "guidance": "Children, older adults and people with heart or lung conditions should limit prolonged outdoor exertion.",
-      "predicted_at": "2026-10-14T06:10:19.659Z",
-      "model_version": "2026-10-13T09:06:12.889748+00:00",
-      "city_id": "karachi_pk"
-    },
-    {
       "target_date": "2026-10-20T00:00:00.000",
-      "as_of_date": "2026-10-18T00:00:00.000",
-      "horizon": 2,
-      "aqi_mean": 98.5192079691,
-      "aqi_mean_lower": 80.551282248,
-      "aqi_mean_upper": 118.0475156946,
-      "aqi_max": 100.2164095094,
-      "aqi_max_lower": 78.6117857521,
-      "aqi_max_upper": 127.0968903278,
-      "band": "Unhealthy for Sensitive Groups",
-      "band_color": "#FF7E00",
-      "guidance": "Children, older adults and people with heart or lung conditions should limit prolonged outdoor exertion.",
-      "predicted_at": "2026-10-14T06:10:19.659Z",
-      "model_version": "2026-10-13T09:06:12.889748+00:00",
+      "as_of_date": "2026-10-19T00:00:00.000",
+      "horizon": 1,
+      "aqi_mean": 81.3727264838,
+      "aqi_mean_lower": 69.6182425424,
+      "aqi_mean_upper": 91.5862533611,
+      "aqi_max": 80.6081015291,
+      "aqi_max_lower": 63.5899987524,
+      "aqi_max_upper": 97.2233276625,
+      "band": "Moderate",
+      "band_color": "#FFFF00",
+      "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
+      "predicted_at": "2026-10-14T11:55:24.994Z",
+      "model_version": "2026-10-14T07:15:24.347013+00:00",
       "city_id": "karachi_pk"
     },
     {
       "target_date": "2026-10-21T00:00:00.000",
-      "as_of_date": "2026-10-18T00:00:00.000",
+      "as_of_date": "2026-10-19T00:00:00.000",
+      "horizon": 2,
+      "aqi_mean": 83.0640243538,
+      "aqi_mean_lower": 64.8952337191,
+      "aqi_mean_upper": 99.8073510001,
+      "aqi_max": 82.195990404,
+      "aqi_max_lower": 59.5188987813,
+      "aqi_max_upper": 104.7456200421,
+      "band": "Moderate",
+      "band_color": "#FFFF00",
+      "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
+      "predicted_at": "2026-10-14T11:55:24.994Z",
+      "model_version": "2026-10-14T07:15:24.347013+00:00",
+      "city_id": "karachi_pk"
+    },
+    {
+      "target_date": "2026-10-22T00:00:00.000",
+      "as_of_date": "2026-10-19T00:00:00.000",
       "horizon": 3,
-      "aqi_mean": 99.150265921,
-      "aqi_mean_lower": 79.6623532163,
-      "aqi_mean_upper": 117.188842537,
-      "aqi_max": 101.6787817858,
-      "aqi_max_lower": 77.6047840739,
-      "aqi_max_upper": 127.3232209019,
-      "band": "Unhealthy for Sensitive Groups",
-      "band_color": "#FF7E00",
-      "guidance": "Children, older adults and people with heart or lung conditions should limit prolonged outdoor exertion.",
-      "predicted_at": "2026-10-14T06:10:19.659Z",
-      "model_version": "2026-10-13T09:06:12.889748+00:00",
+      "aqi_mean": 86.9982314657,
+      "aqi_mean_lower": 66.7167423006,
+      "aqi_mean_upper": 105.3660007903,
+      "aqi_max": 95.2820113075,
+      "aqi_max_lower": 71.3484515959,
+      "aqi_max_upper": 121.0593084184,
+      "band": "Moderate",
+      "band_color": "#FFFF00",
+      "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
+      "predicted_at": "2026-10-14T11:55:24.994Z",
+      "model_version": "2026-10-14T07:15:24.347013+00:00",
       "city_id": "karachi_pk"
     }
   ],
   "live_scoring": {
     "aqi_mean|h1": {
-      "n": 34,
-      "rmse": 12.243941193792566,
-      "mae": 8.540873577965469,
-      "bias": -1.9810810724322943
+      "n": 35,
+      "rmse": 12.60012428637212,
+      "mae": 8.51614671837268,
+      "bias": -1.408808998854402
     },
     "aqi_mean|h2": {
       "n": 3,
-      "rmse": 24.855380903798718,
-      "mae": 19.58453348980772,
-      "bias": -11.356170193054199
+      "rmse": 33.11408007191533,
+      "mae": 24.540238550197387,
+      "bias": -16.31187525344387
     },
     "aqi_max|h1": {
-      "n": 34,
-      "rmse": 20.092830088944858,
-      "mae": 12.852609101795993,
-      "bias": -4.857934187576188
+      "n": 35,
+      "rmse": 19.29874118783708,
+      "mae": 12.406207796983221,
+      "bias": -3.052629281912306
     },
     "aqi_max|h2": {
       "n": 3,
-      "rmse": 43.789876514851485,
-      "mae": 28.28853731712054,
-      "bias": -23.227956617641514
+      "rmse": 55.65174061098498,
+      "mae": 35.16573029957669,
+      "bias": -30.10514960009766
     }
   },
-  "model_trained_at": "2026-10-13T09:06:12.889748+00:00"
+  "model_trained_at": "2026-10-14T07:15:24.347013+00:00"
 }
