@@ -1,21 +1,21 @@
 {
-  "predicted_at": "2026-10-17T13:44:56.440641+00:00",
+  "predicted_at": "2026-10-17T17:12:19.292238+00:00",
   "as_of_date": "2026-10-22",
   "forecast": [
     {
       "target_date": "2026-10-23T00:00:00.000",
       "as_of_date": "2026-10-22T00:00:00.000",
       "horizon": 1,
-      "aqi_mean": 81.7250986726,
-      "aqi_mean_lower": 70.5051006365,
-      "aqi_mean_upper": 91.8390909894,
+      "aqi_mean": 81.7796867921,
+      "aqi_mean_lower": 70.559688756,
+      "aqi_mean_upper": 91.8936791089,
       "aqi_max": 83.2445717283,
       "aqi_max_lower": 66.1456966098,
       "aqi_max_upper": 99.9140341841,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-17T13:44:56.420Z",
+      "predicted_at": "2026-10-17T17:12:19.272Z",
       "model_version": "2026-10-17T06:42:49.868418+00:00",
       "city_id": "karachi_pk"
     },
@@ -26,13 +26,13 @@
       "aqi_mean": 83.0997219028,
       "aqi_mean_lower": 65.5565488883,
       "aqi_mean_upper": 99.7977658887,
-      "aqi_max": 91.2423147433,
-      "aqi_max_lower": 68.7901744514,
-      "aqi_max_upper": 117.4437784646,
+      "aqi_max": 91.1295131567,
+      "aqi_max_lower": 68.6773728649,
+      "aqi_max_upper": 117.3309768781,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-17T13:44:56.420Z",
+      "predicted_at": "2026-10-17T17:12:19.272Z",
       "model_version": "2026-10-17T06:42:49.868418+00:00",
       "city_id": "karachi_pk"
     },
@@ -49,7 +49,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-17T13:44:56.420Z",
+      "predicted_at": "2026-10-17T17:12:19.272Z",
       "model_version": "2026-10-17T06:42:49.868418+00:00",
       "city_id": "karachi_pk"
     }
