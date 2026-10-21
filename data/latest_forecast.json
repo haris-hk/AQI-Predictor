@@ -1,5 +1,5 @@
 {
-  "predicted_at": "2026-10-21T15:17:03.232606+00:00",
+  "predicted_at": "2026-10-21T19:21:38.967442+00:00",
   "as_of_date": "2026-10-26",
   "forecast": [
     {
@@ -15,7 +15,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-21T15:17:03.219Z",
+      "predicted_at": "2026-10-21T19:21:38.922Z",
       "model_version": "2026-10-21T07:10:36.153755+00:00",
       "city_id": "karachi_pk"
     },
@@ -32,7 +32,7 @@
       "band": "Unhealthy for Sensitive Groups",
       "band_color": "#FF7E00",
       "guidance": "Children, older adults and people with heart or lung conditions should limit prolonged outdoor exertion.",
-      "predicted_at": "2026-10-21T15:17:03.219Z",
+      "predicted_at": "2026-10-21T19:21:38.922Z",
       "model_version": "2026-10-21T07:10:36.153755+00:00",
       "city_id": "karachi_pk"
     },
@@ -49,7 +49,7 @@
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-21T15:17:03.219Z",
+      "predicted_at": "2026-10-21T19:21:38.922Z",
       "model_version": "2026-10-21T07:10:36.153755+00:00",
       "city_id": "karachi_pk"
     }
