@@ -1,21 +1,21 @@
 {
-  "predicted_at": "2026-10-26T19:23:58.843793+00:00",
+  "predicted_at": "2026-10-26T23:54:54.927915+00:00",
   "as_of_date": "2026-10-31",
   "forecast": [
     {
       "target_date": "2026-11-01T00:00:00.000",
       "as_of_date": "2026-10-31T00:00:00.000",
       "horizon": 1,
-      "aqi_mean": 115.0915889828,
-      "aqi_mean_lower": 104.4473988606,
-      "aqi_mean_upper": 125.3645079131,
-      "aqi_max": 105.5667961644,
-      "aqi_max_lower": 89.3657463602,
-      "aqi_max_upper": 122.4018749699,
+      "aqi_mean": 114.3405158108,
+      "aqi_mean_lower": 103.6963256885,
+      "aqi_mean_upper": 124.613434741,
+      "aqi_max": 107.4579413652,
+      "aqi_max_lower": 91.256891561,
+      "aqi_max_upper": 124.2930201707,
       "band": "Unhealthy for Sensitive Groups",
       "band_color": "#FF7E00",
       "guidance": "Children, older adults and people with heart or lung conditions should limit prolonged outdoor exertion.",
-      "predicted_at": "2026-10-26T19:23:58.824Z",
+      "predicted_at": "2026-10-26T23:54:54.913Z",
       "model_version": "2026-10-26T07:34:16.247690+00:00",
       "city_id": "karachi_pk"
     },
@@ -23,16 +23,16 @@
       "target_date": "2026-11-02T00:00:00.000",
       "as_of_date": "2026-10-31T00:00:00.000",
       "horizon": 2,
-      "aqi_mean": 108.3457036885,
-      "aqi_mean_lower": 91.7948567293,
-      "aqi_mean_upper": 127.7418590046,
-      "aqi_max": 84.9875502451,
-      "aqi_max_lower": 61.4048165634,
-      "aqi_max_upper": 107.2307313644,
+      "aqi_mean": 108.9548825234,
+      "aqi_mean_lower": 92.4040355642,
+      "aqi_mean_upper": 128.3510378396,
+      "aqi_max": 86.9487862796,
+      "aqi_max_lower": 63.3660525979,
+      "aqi_max_upper": 109.1919673989,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-26T19:23:58.824Z",
+      "predicted_at": "2026-10-26T23:54:54.913Z",
       "model_version": "2026-10-26T07:34:16.247690+00:00",
       "city_id": "karachi_pk"
     },
@@ -40,16 +40,16 @@
       "target_date": "2026-11-03T00:00:00.000",
       "as_of_date": "2026-10-31T00:00:00.000",
       "horizon": 3,
-      "aqi_mean": 96.9484343552,
-      "aqi_mean_lower": 77.9199090093,
-      "aqi_mean_upper": 116.5003189616,
-      "aqi_max": 98.4831180406,
-      "aqi_max_lower": 75.5703120849,
-      "aqi_max_upper": 124.0767322175,
+      "aqi_mean": 94.7727426067,
+      "aqi_mean_lower": 75.7442172608,
+      "aqi_mean_upper": 114.3246272131,
+      "aqi_max": 98.131625582,
+      "aqi_max_lower": 75.2188196263,
+      "aqi_max_upper": 123.7252397589,
       "band": "Moderate",
       "band_color": "#FFFF00",
       "guidance": "Unusually sensitive people should consider limiting prolonged outdoor exertion.",
-      "predicted_at": "2026-10-26T19:23:58.824Z",
+      "predicted_at": "2026-10-26T23:54:54.913Z",
       "model_version": "2026-10-26T07:34:16.247690+00:00",
       "city_id": "karachi_pk"
     }
@@ -57,27 +57,27 @@
   "live_scoring": {
     "aqi_mean|h1": {
       "n": 46,
-      "rmse": 12.402018574916362,
-      "mae": 9.091456820702142,
-      "bias": -3.273630483724341
+      "rmse": 12.671144039211402,
+      "mae": 9.215007207853086,
+      "bias": -2.980296212004802
     },
     "aqi_mean|h2": {
       "n": 4,
-      "rmse": 28.749217121638,
-      "mae": 23.232299715618037,
-      "bias": -17.061027243052898
+      "rmse": 28.867629980425622,
+      "mae": 23.366607618770157,
+      "bias": -17.195335146205018
     },
     "aqi_max|h1": {
       "n": 46,
-      "rmse": 19.56587313177711,
-      "mae": 13.463744185808423,
-      "bias": -4.238374187081758
+      "rmse": 19.55154607437988,
+      "mae": 13.378036302699709,
+      "bias": -4.171908157146996
     },
     "aqi_max|h2": {
       "n": 4,
-      "rmse": 35.72662364170855,
-      "mae": 24.646618186000566,
-      "bias": -20.8511826613913
+      "rmse": 35.87758723680308,
+      "mae": 24.892849341779463,
+      "bias": -21.097413817170196
     }
   },
   "model_trained_at": "2026-10-26T07:34:16.247690+00:00"
