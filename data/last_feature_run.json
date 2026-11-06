@@ -1,5 +1,5 @@
 {
-  "ran_at": "2026-11-06T17:58:46.693429+00:00",
+  "ran_at": "2026-11-06T23:10:27.384134+00:00",
   "hourly_rows_fetched": 264,
   "hourly_rows_total": 37512,
   "daily_rows_total": 1561,
@@ -20,7 +20,7 @@
     "duplicate_dates": 0,
     "aqi_mean_min": 15.354938271604938,
     "aqi_mean_max": 263.78961214547576,
-    "aqi_mean_median": 83.43688212927758,
+    "aqi_mean_median": 83.45913603717786,
     "columns_over_50pct_null": []
   }
 }
