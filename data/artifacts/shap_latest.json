@@ -3,7 +3,7 @@
   "horizon": 1,
   "as_of": "2026-11-12",
   "base_value": 92.78261680539795,
-  "prediction": 81.94762820743726,
+  "prediction": 81.94762820743728,
   "contributions": {
     "pm2_5_mean": -5.0726884860911,
     "pm2_5_mean_roll3_mean": -1.0316525072762865,
